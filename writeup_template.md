@@ -25,8 +25,6 @@ The goals / steps of this project are the following:
 [image6]: ./examples/placeholder_small.png "Normal Image"
 [image7]: ./examples/placeholder_small.png "Flipped Image"
 
-## Rubric Points
-### Here I will consider the [rubric points](https://review.udacity.com/#!/rubrics/432/view) individually and describe how I addressed each point in my implementation.  
 
 ---
 ### Files Submitted & Code Quality
@@ -53,8 +51,8 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-My model consists of a convolution neural network with 3x3 filter sizes and depths between 32 and 128 (model.py lines 18-24)
-Then it comes with the 
+My model consists of five convolution layers with 3x3 and 5x5 filter sizes and depths of 24, 36, 48 and 64 (model.py lines 18-24)
+Then it comes with the five fully connected layers.
 
 The model includes RELU layers(I also tried elu layers as an activation method, but the result seem to be no different) to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). Then the picture is cropped using a Cropping2D layer just after the lambda layer, then it comes to the convolutional layer.
 
@@ -72,23 +70,22 @@ The model used an adam optimizer, so the learning rate was not tuned manually (m
 
 Training data was chosen to keep the vehicle driving on the road. I used a combination of center lane driving, recovering from the left and right sides of the road.
 
-For details about how I created the training data, see the next section. 
+I just used the sample_training_data given, the result look fine.
+Some techniques about data collection includes driving both conterclockwise and clockwise(that's two tracks of data). Collecting data of driving from the edge of the road to the middle at some sharp turns.
 
 ### Model Architecture and Training Strategy
 
 #### 1. Solution Design Approach
 
-The overall strategy for deriving a model architecture was to ...
+The overall strategy for deriving a model architecture was to using preprocessing to generate more data, using pictures take by all three cameras. Using a good model and then tune it.
 
-My first step was to use a convolution neural network model similar to the ... I thought this model might be appropriate because ...
+My first step was to use a convolution neural network model published by NVIDIA in the paper "End to End learning for Self-Driving Cars" I thought this model might be appropriate because the model is designed as an end to end driving solution which also takes pictures from cameras an the input.
 
-In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set. I found that my first model had a low mean squared error on the training set but a high mean squared error on the validation set. This implied that the model was overfitting. 
+In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set by a rate of 0.8. I found that my first model had a low mean squared error on the training set and also a low mean squared error on the validation set. (Of course I applied dropout layers)
 
-To combat the overfitting, I modified the model so that ...
+Then I used a generator to feed data to the neural network. Using the appropriate parameters to train the model.
 
-Then I ... 
-
-The final step was to run the simulator to see how well the car was driving around track one. There were a few spots where the vehicle fell off the track... to improve the driving behavior in these cases, I ....
+The final step was to run the simulator to see how well the car was driving around track one. It doesn't preform well because I do missed one fully connected layer at first. After I added the layer, the result seem good.
 
 At the end of the process, the vehicle is able to drive autonomously around the track without leaving the road.
 
