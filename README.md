@@ -31,8 +31,9 @@ My project includes the following files:
 * model.py containing the script to create and train the model
 * drive.py for driving the car in autonomous mode
 * writeup_report.md or writeup_report.pdf summarizing the results
+* model.h5 containing model parameter used for driving in autonomous mode
 
-Note: It should contain the model.h5 but it is too big(more than 420M), so I do not uploaded it on github.
+Note: It should contain the model.h5 but it is too big(more than 420M), so I split it into 17 files and upload it into a file.
 
 
 ### Model Architecture and Training Strategy
