@@ -93,9 +93,34 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 The final model architecture (model.py lines 101-123) consisted of a convolution neural network with the following layers and layer sizes ...
 
+| Layer             		|     Description	        	            				| 
+|:---------------------:|:---------------------------------------------:| 
+| lambda_1		        	| normalization  					                			|
+| cropping2d_1        	| inputs 160x320x3, outputs 89x320x3       			|
+| Input         		    | 89x320x3 RGB image   			    		        		| 
+| Convolution 5x5     	| 2x2 stride, same padding, outputs 45x160x24	  |
+| RELU				        	| activation    					                			|
+| Convolution	5x5      	| 2x2 stride,  outputs 23x80x36         				|
+| RELU				        	| activation    					                			|
+| Convolution 5x5	      | 2x2 stride,  outputs 12x40x48 		        		|
+| RELU          	      | acitvation                     		        		|
+| Convolution 3x3       | 1x1 stride,  outputs 12x40x64  		        		|
+| RELU          	      | acitvation                     		        		|
+| Convolution 3x3       | 1x1 stride,  outputs 12x40x64  		        		|
+| RELU          	      | acitvation                     		        		|
+| Dropout			        	| keep_probability = 0.5                  			|
+| Flatten       	      | input 12x40x64, outputs 30720  	         			|
+| Fully connedted	      | input 30720,    outputs 1164   		        		|
+| Fully connected		    | input 1164,     outputs 100 		          		|
+| Fully connected		    | input 100,      outputs 50  		          		|
+| Fully connected		    | input 50,       outputs 10  		          		|
+| Fully connected		    | input 10,       outputs 1   		          		|
+Total parameters: 36,012,663
+
+
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
-![alt text][image1]
+![alt text][model_architecture]
 
 #### 3. Creation of the Training Set & Training Process
 
