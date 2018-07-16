@@ -14,12 +14,12 @@ The goals / steps of this project are the following:
 * Test that the model successfully drives around track one without leaving the road
 * Summarize the results with a written report
 
-
 [//]: # (Image References)
 
-[image1]: ./examples/model architecture.jpg "Model Visualization"
-[image2]: ./examples/cropping.jpg "Image After Cropping"
-[image3]: ./examples/model_loss.png "Model MSE(Mean Square Error) Loss"
+[image1]: ./examples/placeholder.png "Model Visualization"
+[image2]: ./examples/placeholder.png "Grayscaling"
+[image3]: ./examples/placeholder_small.png "Recovery Image"
+
 
 
 
