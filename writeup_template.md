@@ -51,20 +51,20 @@ The model.py file contains the code for training and saving the convolution neur
 
 #### 1. An appropriate model architecture has been employed
 
-My model consists of five convolution layers with 3x3 and 5x5 filter sizes and depths of 24, 36, 48 and 64 (model.py lines 18-24)
+My model consists of five convolution layers with 3x3 and 5x5 filter sizes and depths of 24, 36, 48 and 64 (model.py lines 101-123)
 Then it comes with the five fully connected layers.
 
-The model includes RELU layers(I also tried elu layers as an activation method, but the result seem to be no different) to introduce nonlinearity (code line 20), and the data is normalized in the model using a Keras lambda layer (code line 18). Then the picture is cropped using a Cropping2D layer just after the lambda layer, then it comes to the convolutional layer.
+The model includes RELU layers(I also tried elu layers as an activation method, but the result seem to be no different) to introduce nonlinearity (code line 101-117), and the data is normalized in the model using a Keras lambda layer (code line 105). Then the picture is cropped using a Cropping2D layer just after the lambda layer, then it comes to the convolutional layer (code line 106).
 
 #### 2. Attempts to reduce overfitting in the model
 
-The model contains dropout layers in order to reduce overfitting (model.py lines 21). 
+The model contains dropout layers in order to reduce overfitting (model.py lines 113). 
 
-The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 10-16). The training and validation set are got by first randomly shuffle the original data and then pick 80% of them as an training set and 20% of them as the validation set. The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
+The model was trained and validated on different data sets to ensure that the model was not overfitting (code line 41). The training and validation set are got by first randomly shuffle the original data and then pick 80% of them as an training set and 20% of them as the validation set. The model was tested by running it through the simulator and ensuring that the vehicle could stay on the track.
 
 #### 3. Model parameter tuning
 
-The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 25).
+The model used an adam optimizer, so the learning rate was not tuned manually (model.py line 134).
 
 #### 4. Appropriate training data
 
@@ -83,7 +83,7 @@ My first step was to use a convolution neural network model published by NVIDIA 
 
 In order to gauge how well the model was working, I split my image and steering angle data into a training and validation set by a rate of 0.8. I found that my first model had a low mean squared error on the training set and also a low mean squared error on the validation set. (Of course I applied dropout layers)
 
-Then I used a generator to feed data to the neural network. Using the appropriate parameters to train the model.
+Then I used a generator to feed data to the neural network. Using the appropriate parameters to train the model. Tarin the model for 3 epochs with an batch size of 128. the number of training and validation steps per epoch are both 140.
 
 The final step was to run the simulator to see how well the car was driving around track one. It doesn't preform well because I do missed one fully connected layer at first. After I added the layer, the result seem good.
 
@@ -91,7 +91,7 @@ At the end of the process, the vehicle is able to drive autonomously around the 
 
 #### 2. Final Model Architecture
 
-The final model architecture (model.py lines 18-24) consisted of a convolution neural network with the following layers and layer sizes ...
+The final model architecture (model.py lines 101-123) consisted of a convolution neural network with the following layers and layer sizes ...
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
