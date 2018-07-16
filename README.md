@@ -23,9 +23,9 @@ The goals / steps of this project are the following:
 
 
 ---
-### Files Submitted & Code Quality
+### Files Included
 
-#### 1. Submission includes all required files and can be used to run the simulator in autonomous mode
+#### 1. The repository includes the following files and can be used to run the simulator in autonomous mode
 
 My project includes the following files:
 * model.py containing the script to create and train the model
@@ -34,15 +34,6 @@ My project includes the following files:
 
 Note: It should contain the model.h5 but it is too big(more than 420M), so I do not uploaded it on github.
 
-#### 2. Submission includes functional code
-Using the Udacity provided simulator and my drive.py file, the car can be driven autonomously around the track by executing 
-```sh
-python drive.py model.h5
-```
-
-#### 3. Submission code is usable and readable
-
-The model.py file contains the code for training and saving the convolution neural network. The file shows the pipeline I used for training and validating the model, and it contains comments to explain how the code works. The comments also contains some of the problems I meet while coding and how I manage to solve them as a remainder, in case I may meet them again.
 
 ### Model Architecture and Training Strategy
 
