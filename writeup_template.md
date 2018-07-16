@@ -17,13 +17,11 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/placeholder.png "Model Visualization"
-[image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
-[image4]: ./examples/placeholder_small.png "Recovery Image"
-[image5]: ./examples/placeholder_small.png "Recovery Image"
-[image6]: ./examples/placeholder_small.png "Normal Image"
-[image7]: ./examples/placeholder_small.png "Flipped Image"
+[image1]: ./examples/model_architecture.jpg "Model Visualization"
+[image2]: ./examples/cropping.jpg "Image After Cropping"
+[image3]: ./examples/model_loss.png "Model MSE(Mean Square Error) Loss"
+
+
 
 
 ---
@@ -120,32 +118,28 @@ Total parameters: 36,012,663
 
 Here is a visualization of the architecture (note: visualizing the architecture is optional according to the project rubric)
 
-![alt text][model_architecture]
+![alt text][image1]
 
 #### 3. Creation of the Training Set & Training Process
 
-To capture good driving behavior, I first recorded two laps on track one using center lane driving. Here is an example image of center lane driving:
-
-![alt text][image2]
-
-I then recorded the vehicle recovering from the left side and right sides of the road back to center so that the vehicle would learn to .... These images show what a recovery looks like starting from ... :
-
-![alt text][image3]
-![alt text][image4]
-![alt text][image5]
+To capture good driving behavior, I first recorded two laps on track one using center lane driving.
+But I found it really difficult to control the car and I simply do not want to buy a joystick just for that....
+So I just use the sample data given as a resources by udacity. And the data is good!
 
 Then I repeated this process on track two in order to get more data points.
 
-To augment the data sat, I also flipped images and angles thinking that this would ... For example, here is an image that has then been flipped:
+To augment the data sat, I also flipped images and angles thinking that this would make the model more robust and accurate.
+I put the code in an function called preprocess_image (code line 81-92).
+Cropping is also a kind of preprocessing method. But it is included in the keras layers.
+here is an example of the picture after cropping:
 
-![alt text][image6]
-![alt text][image7]
+![alt text][image2]
 
-Etc ....
+But I tried both with and without preprocessing, the car seem to perform the same.....
 
-After the collection process, I had X number of data points. I then preprocessed this data by ...
+I finally randomly shuffled the data set and put 20% of the data into a validation set. 
 
+I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was 3 as evidenced by after the third epoch, the loss remains stable and will not go down anymore as I tried. I used an adam optimizer so that manually training the learning rate wasn't necessary.
+Shown below is the loss per epoch:
 
-I finally randomly shuffled the data set and put Y% of the data into a validation set. 
-
-I used this training data for training the model. The validation set helped determine if the model was over or under fitting. The ideal number of epochs was Z as evidenced by ... I used an adam optimizer so that manually training the learning rate wasn't necessary.
+![alt text][image3]
