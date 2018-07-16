@@ -17,8 +17,8 @@ The goals / steps of this project are the following:
 
 [//]: # (Image References)
 
-[image1]: ./examples/model architecture.JPG "Model Visualization"
-[image2]: ./examples/cropping.JPG "Image After Cropping"
+[image1]: ./examples/model architecture.jpg "Model Visualization"
+[image2]: ./examples/cropping.jpg "Image After Cropping"
 [image3]: ./examples/model_loss.png "Model MSE(Mean Square Error) Loss"
 
 
