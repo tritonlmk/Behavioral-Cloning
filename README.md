@@ -18,7 +18,7 @@ The goals / steps of this project are the following:
 
 [image1]: ./examples/placeholder.png "Model Visualization"
 [image2]: ./examples/placeholder.png "Grayscaling"
-[image3]: ./examples/placeholder_small.png "Recovery Image"
+[image3]: ./examples/model_loss.png "Recovery Image"
 
 
 
